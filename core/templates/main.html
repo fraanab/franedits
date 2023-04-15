@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <section class="hero">
+		<video autoplay muted loop>
+			<source src="{% static 'fp.webm' %}" type="video/webm">
+		</video>
+		<img src="{% static 'vegaspro.png' %}" alt="Vegas" id="vegas">
+		<img src="{% static 'JavaScript.png' %}" alt="JavaScript" id="js">
+		<div class="hero-txt">
+			<h1>Video Editor</h1>
+			<p>Francisco A.</p>
+			<a href="#about" class="cta">More</a>
+		</div>
+	</section>
+
+	<section id="about">
+		<h1 class="glitch" id="who" data-text="Who am I?"><span>Who am I?</span></h1>
+
+		<div class="about" id="me">
+			<div class="about-l">
+				<img src="{% static 'me.jpg' %}" alt="Francisco Abalos">
+			</div>
+
+			<div class="about-r">
+				<p><span>Hi</span>, i'm a <b>video editor</b> with +5 years of experience. I'm skilled in using <b>Vegas Pro and Photoshop</b> to create captivating videos, and I also enjoy exploring new <b>AI tools</b> like <b>ChatGPT</b>, <b>text-to-speech</b> software, and <b>image generators</b> like Midjourney and Epic Diffusion.</p>
+
+				<a href="{% url 'contact' %}" class="btn">Contact me <i class="fa-regular fa-face-smile-beam"></i></a>
+			</div>
+		</div>
+
+		<div class="about">
+			<div class="about-l">
+				<video id="herod" title="twitch.tv/herod [ ES ]" autoplay muted loop>
+					<source src="{% static 'heroclip.mp4' %}" type="video/mp4">
+				</video>
+			</div>
+			<div class="about-r">
+				<p>My attention to detail and creative flair have helped me deliver <b>high-quality work</b> that my clients <b>love</b>.</p>
+				<a href="{% url 'contact' %}" class="btn">Contact me <i class="fa-regular fa-face-smile-beam"></i></a>
+			</div>
+		</div>
+
+		<div class="about">
+			<div class="about-l">
+				<video autoplay muted loop>
+					<source src="{% static 'skins.mov' %}" type="video/mp4">
+				</video>
+			</div>
+			<div class="about-r">
+				<p>I've <b title="Fiverr">freelanced</b> before, creating <b>short ads</b> for <b>businesses</b> and also i've worked with <b>small livestreamers</b>.</p>
+				<a href="{% url 'contact' %}" class="btn">Contact me <i class="fa-regular fa-face-smile-beam"></i></a>
+			</div>
+		</div>
+
+		<div class="about">
+			<div class="about-l">
+				<video autoplay muted loop>
+					<source src="{% static 'WEBDEVELOPER.webm' %}" type="video/webm">
+				</video>
+			</div>
+
+			<div class="about-r">
+				<p>In addition to video editing, I have <b>1.5 years of experience</b> in web development. I love combining my skills to create visually stunning content for my clients.</p>
+				<a href="{% url 'contact' %}" class="btn">Contact me <i class="fa-regular fa-face-smile-beam"></i></a>
+			</div>
+		</div>
+
+		<div class="contactme">
+				<p>Overall, I'm a versatile and <b>passionate</b> video editor who's always willing to explore new tools and techniques.</p>
+				<!-- <a href="#" class="btn">Contact me <i class="fa-regular fa-face-smile-beam"></i></a> -->
+		</div>
+	</section>
+{% endblock content %}

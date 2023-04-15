@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+	<a href="/" class="goback">
+		<i class="fa-sharp fa-solid fa-chevron-left"></i>
+	</a>
+	<h1 class="title">CONTACT ME</h1>
+	<form id="my-form" method="POST" action=".">
+		{% csrf_token %}
+		<div class="form">
+			
+			<label for="email">Email</label>
+			<input name="email" type="email" required placeholder="example@gmail.com" id="email">
+			<label for="name">Name</label>
+			<input type="text" required name="name" placeholder="Write your name here" id="name">
+			<label for="msg">Message</label>
+			<textarea name="message" id="msg" rows="10">Hello!...</textarea>
+			<button class="btn" type="submit">Send</button>
+
+			<div id="message-sent" style="display: none;">
+				{% if messages %}
+				    {% for message in messages %}
+				    	<p style="{% if message.error %}color:f00;{% else %} color:#0f0; {% endif %}">
+				    		{{ message }}
+				    	</p>
+				    {% endfor %}
+				{% endif %}
+			</div>
+
+		</div>
+
+		<img src="{% static 'editvideo.png' %}" alt="contact image">
+	</form>
+
+	<div id="contactP">
+		<p>This message will be sent to my inbox! I'll reach to you when i read ya!</p>
+	</div>
+
+	<div id="info">
+		<p class="first-child">Aditional information:</p>
+		<ul>
+			<li>
+				<details open>
+					<summary>How much are you charging right now?</summary>
+					<p>My rates are u$d 20/hr for a 10-20 minute video but i can be flexible, u$d 10 for a tiktok</p>
+				</details>
+			</li>
+
+			<li>
+				<details>
+					<summary>What kinds of jobs/projects are you doing?</summary>
+					<p>Youtube videos, short social media ads, TikTok, Instagram, Facebook.</p>
+				</details>
+			</li>
+
+			<li>
+				<details>
+					<summary>Can i order a video from you right now?</summary>
+					<p>Send me a message using the message form, or click one of the links at the footer below</p>
+				</details>
+			</li>
+
+			<li>
+				<details>
+					<summary>What payment methods are you using?</summary>
+					<p>At the moment, PayPal</p>
+				</details>
+			</li>
+		</ul>
+	</div>
+{% endblock content %}
+
+{% block scripts %}
+    <script>
+    	const form = document.querySelector('#my-form')
+    	const messageSent = document.querySelector('#message-sent')
+
+    	form.addEventListener('submit', (event) => {
+		    event.preventDefault();
+		    messageSent.style.display = 'none';
+
+		    // Your form submission code here
+		    const formData = new FormData(form)
+		    fetch('{% url "contact" %}', {
+		    	method: 'POST',
+		    	body: formData
+		    })
+		    .then(response => {
+		    	if (response.ok) {
+		    		const message = document.createElement('div');
+				    message.textContent = 'Message sent';
+				    message.style.color = 'green';
+    				message.style.marginTop = '10px';
+				    messageSent.appendChild(message);
+				    messageSent.style.display = 'block';
+
+				    setTimeout(() => {
+				    	messageSent.style.display = 'none';
+				    	message.remove();
+				    }, 3000);
+		    	}else{
+		    		throw new Error('Failed to send message')
+		    	}
+		    })
+		    .catch(error => {
+		    	console.error(error)
+		    	alert('An error occurred while sending the message')
+		    })
+
+		    
+		});
+    </script>
+{% endblock scripts %}
