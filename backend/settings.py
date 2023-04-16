@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,16 +21,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#uldtbzy*$r8ag3h)_of9yx#vs^(-qc^_7w@7v&p4wcg(f2)bn'
+SECRET_KEY = os.getenv('SK')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','d0fb6ea4-a926-428e-a24d-cc927f4f04dd.id.repl.co','editing.fraanab.repl.co']
 
 CSRF_TRUSTED_ORIGINS = [
-  'http://127.0.0.1', 'http://localhost'
+  'http://127.0.0.1', 'http://localhost',
+  'http://d0fb6ea4-a926-428e-a24d-cc927f4f04dd.id.repl.co',
+  'https://editing.fraanab.repl.co'
 ]
 
 CORS_ALLOW_METHODS = [
@@ -51,13 +54,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "django_browser_reload",
+
     "corsheaders",
     'core',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
@@ -65,7 +69,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -139,12 +142,18 @@ STATIC_ROOT = BASE_DIR / 'static'
 # STATICFILES_DIRS = (
 #   os.path.join(BASE_DIR, 'static'),
 # )
-
+STORAGES = {
+  "staticfiles": {
+        "BACKEND":
+          # "django.contrib.staticfiles.storage.StaticFilesStorage",
+          "whitenoise.storage.CompressedManifestStaticFilesStorage",
+  },
+}
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp-mail.outlook.com'
 EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'testingouteqw@outlook.com'
-EMAIL_HOST_PASSWORD = '1234asa321EQW'
+EMAIL_HOST_USER = os.getenv('HOSTEMAIL')
+EMAIL_HOST_PASSWORD = os.getenv('HOSTPASS')
 # EMAIL_USE_SSL = True
 EMAIL_USE_TLS = True
 
