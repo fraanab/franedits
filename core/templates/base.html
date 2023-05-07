@@ -4,10 +4,15 @@
 	{% load static %}
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Francisco A. | Video Editor | Homepage</title>
+	<title>Francisco A. | Video Editor | {% block title %}{% endblock %}</title>
 	<link rel="stylesheet" href="{% static 'style.css' %}">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="shortcut icon" href="./static/icons8-easy-100.png" type="image/png">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<!-- 	<link rel="shortcut icon" href="{% static 'icons8-easy-100.png' %}" type="image/png"> -->
+  <link rel="shortcut icon" href="/static/icons8-easy-100.png" type="image/png">
+
+  <style>
+    #os-mg:hover{color:#c00}
+  </style>
 </head>
 <body>
 
@@ -22,6 +27,7 @@
 		<a href="https://es.fiverr.com/share/Z96vQR">Fiverr</a>
 		<a href="https://www.upwork.com/services/product/video-audio-an-edited-version-of-your-video-1540388719570350080?ref=project_share">Upwork</a>
 		<a href="https://myportfolio.fraanab.repl.co/">Web Dev</a>
+    <a href="https://drive.google.com/drive/folders/1h1zA_tvaHb2OCYo8xmPCN1G6jIE5y12F?usp=sharing" title="Google Drive">Samples</a>
 	</section>
 
 	{% block scripts %}

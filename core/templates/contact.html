@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block title %}Contact Page{% endblock %}
 {% block content %}
 	<a href="/" class="goback">
 		<i class="fa-sharp fa-solid fa-chevron-left"></i>
@@ -32,17 +33,78 @@
 		<img src="{% static 'editvideo.png' %}" alt="contact image">
 	</form>
 
-	<div id="contactP">
+	<div id="contactP" style="margin-bottom:4rem;">
 		<p>This message will be sent to my inbox! I'll reach to you when i read ya!</p>
 	</div>
 
+
+    
+	<i class="title-icon fa-solid fa-store"></i>
+	<h3 class="small-title glitch" data-text="Packages">Packages</h3>
+
+	<section class="packages">
+		<div class="package">
+			
+			<div class="package-stars">
+				<i class="fa-solid fa-star"></i>
+			</div>
+
+			<ul>
+				<li><span>Price:</span> $25</li>
+				<li><span>Runtime:</span> up to 5 minutes</li>
+				<li id="os-mg" style="text-decoration:line-through;">Montion Graphics</li>
+				<li>Memes</li>
+				<li title="Sound effects + Background music">Sfx + Bgm</li>
+				<li>Captions</li>
+			</ul>
+
+		</div>
+
+		<div class="package">
+			
+			<div class="package-stars">
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+			</div>
+
+			<ul>
+				<li><span>Price:</span> $45</li>
+				<li><span>Runtime:</span> up to 10 minutes</li>
+				<li>Montion Graphics</li>
+				<li>Memes</li>
+				<li title="Video effects + Sound effects + Background music">Vfx + Sfx + Bgm</li>
+				<li>Captions</li>
+			</ul>
+
+		</div>
+
+		<div class="package">
+			
+			<div class="package-stars">
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+			</div>
+
+			<ul>
+				<li><span>Price:</span> $70</li>
+				<li><span>Runtime:</span> up to 20 minutes</li>
+				<li>Montion Graphics</li>
+				<li>Memes</li>
+				<li title="Video effects + Sound effects + Background music">Vfx + Sfx + Bgm</li>
+				<li>Captions</li>
+			</ul>
+
+		</div>
+	</section>
+
 	<div id="info">
-		<p class="first-child">Aditional information:</p>
+		<p class="first-child">Additional information:</p>
 		<ul>
 			<li>
 				<details open>
 					<summary>How much are you charging right now?</summary>
-					<p>My rates are u$d 20/hr for a 10-20 minute video but i can be flexible, u$d 10 for a tiktok</p>
+					<p>I have 3 packages available right now, the cheapest one is $25 for 5 min of runtime. $75 is the most expensive one, for more content. Check out the packages above.</p>
 				</details>
 			</li>
 

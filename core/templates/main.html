@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block title %}Homepage{% endblock %}
 {% block content %}
     <section class="hero">
 		<video autoplay muted loop>
@@ -10,7 +11,7 @@
 		<div class="hero-txt">
 			<h1>Video Editor</h1>
 			<p>Francisco A.</p>
-			<a href="#about" class="cta">More</a>
+			<a href="#about" class="cta">Learn More</a>
 		</div>
 	</section>
 
@@ -23,7 +24,7 @@
 			</div>
 
 			<div class="about-r">
-				<p><span>Hi</span>, i'm a <b>video editor</b> with +5 years of experience. I'm skilled in using <b>Vegas Pro and Photoshop</b> to create captivating videos, and I also enjoy exploring new <b>AI tools</b> like <b>ChatGPT</b>, <b>text-to-speech</b> software, and <b>image generators</b> like Midjourney and Epic Diffusion.</p>
+				<p>Hi, welcome to my <b>video editing</b> gig. I'm an editor skilled in <b>Vegas Pro</b>, software I use to create captivating videos. I also enjoy exploring new <b>AI tools</b> like <b>ChatGPT</b>, and <b>text-to-speech</b> software, that I can use in projects!</p>
 
 				<a href="{% url 'contact' %}" class="btn">Contact me <i class="fa-regular fa-face-smile-beam"></i></a>
 			</div>
@@ -72,7 +73,74 @@
 		</div>
 	</section>
 
-  <section class="workflow">
+
+<!-- packages -->
+
+	<i id="packages-list" class="title-icon fa-solid fa-store"></i>
+	<h3 class="small-title glitch" data-text="Packages">Packages</h3>
+
+	<section class="packages">
+		<div class="package">
+			
+			<div class="package-stars">
+				<i class="fa-solid fa-star"></i>
+			</div>
+
+			<ul>
+				<li><span>Price:</span> $25</li>
+				<li><span>Runtime:</span> up to 5 minutes</li>
+				<li id="os-mg" style="text-decoration:line-through;">Montion Graphics</li>
+				<li>Memes</li>
+				<li title="Sound effects + Background music">Sfx + Bgm</li>
+				<li>Captions</li>
+			</ul>
+
+		</div>
+
+		<div class="package">
+			
+			<div class="package-stars">
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+			</div>
+
+			<ul>
+				<li><span>Price:</span> $45</li>
+				<li><span>Runtime:</span> up to 10 minutes</li>
+				<li>Montion Graphics</li>
+				<li>Memes</li>
+				<li title="Video effects + Sound effects + Background music">Vfx + Sfx + Bgm</li>
+				<li>Captions</li>
+			</ul>
+
+		</div>
+
+		<div class="package">
+			
+			<div class="package-stars">
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+				<i class="fa-solid fa-star"></i>
+			</div>
+
+			<ul>
+				<li><span>Price:</span> $70</li>
+				<li><span>Runtime:</span> up to 20 minutes</li>
+				<li>Montion Graphics</li>
+				<li>Memes</li>
+				<li title="Video effects + Sound effects + Background music">Vfx + Sfx + Bgm</li>
+				<li>Captions</li>
+			</ul>
+
+		</div>
+	</section>
+
+	<a href="{% url 'contact' %}" class="btn middle-cta">Contact Me</a>
+
+
+<!--     workflow     -->
+  <section class="workflow" style="margin-top: 5rem;">
+    <div id="workflow-section" class="fa-solid fa-list-check title-icon"></div>
 		<h1 class="who glitch" data-text="My Workflow">My Workflow</h1>
 
 		<ul class="workflow-items">
@@ -131,4 +199,6 @@
 			</li>
 		</ul>
 	</section>
+
+
 {% endblock content %}
