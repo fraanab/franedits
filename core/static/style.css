@@ -328,9 +328,62 @@ a{
 
 
 
+/* Main workflow */
 
+.workflow .who{width:100%; text-align:center;}
+.workflow{
+	width: 100%;height: 100%;
+	padding: 2rem;
+}
+.workflow-items{
+	display: flex;flex-direction: row;
+	gap:1rem;
+	flex-wrap:wrap;
+	justify-content: center;align-items: center;
+	margin-top: 1rem;
+}
+.workflow h1{
+	font-size: 2rem;
+	z-index: 1;
+}
+.workflow-items li{
+	max-width: 320px;
+	height: 320px;
+	/* background: #000; */
+	background: rgba(0,0,0,.4);
+	/* border-radius: 5px; */
+	padding: 2rem;
+	display: flex;flex-direction: column;
+	gap:1rem;
+	align-items: center;justify-content: space-around;
+	box-shadow: 5px 5px #ccc;
+}
+.workflow-items li h3{
+	text-transform:uppercase;
+}
+.workflow-items li p{
+	text-align: justify;
+	color: #aaa;
+}
+.workflow-items li i{
+	font-size: 4rem;
+}
 
+.workflow-items b{color: #fff;}
 
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity:1;
+    text-shadow:0 0 3px #fff;
+   }
+   20%, 24%, 55% {
+    opacity:0;
+   }
+}
+
+.flicker {
+   animation: flicker 1s linear infinite;
+}
 
 /* Contact */
 
