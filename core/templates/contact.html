@@ -1,11 +1,49 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Contact Page{% endblock %}
+{% block styles %}
+  <style>
+    #custom-modal{
+      position: fixed;top:0;left:0;
+      width: 100%;height: 100%;
+
+      flex-direction: column;
+      align-items: center;justify-content: center;
+      background: rgba(0, 0, 0, 0.8)
+    }
+    #modal-content{
+      width: 100%;height: 100%;
+      display: flex;
+      align-items: center;justify-content:center;
+    }
+    #modal-content p{
+      font-size: 2rem;
+      color: #fff;
+      text-shadow: 3px 3px 3px #000;
+    }
+    .fiverr-link{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;justify-content:center;
+      gap:1rem;
+      margin-bottom: 2rem;
+    }
+  </style>
+{% endblock %}
+
 {% block content %}
+  <div id="custom-modal" class="modal" style="display: none;">
+    <div id="modal-content">
+      <p>Hold on a second... sending this message right now</p>
+    </div>
+  </div>
+
 	<a href="/" class="goback">
 		<i class="fa-sharp fa-solid fa-chevron-left"></i>
 	</a>
 	<h1 class="title">CONTACT ME</h1>
+
 	<form id="my-form" method="POST" action=".">
 		{% csrf_token %}
 		<div class="form">
@@ -14,15 +52,18 @@
 			<input name="email" type="email" required placeholder="example@gmail.com" id="email">
 			<label for="name">Name</label>
 			<input type="text" required name="name" placeholder="Write your name here" id="name">
+      <label for="discord">Discord name (optional)</label>
+      <input type="text" name="discord" placeholder="Discord name (optional)">
 			<label for="msg">Message</label>
-			<textarea name="message" id="msg" rows="10">Hello!...</textarea>
+			<textarea name="message" id="msg" rows="10">Hello!... I'm looking for a video editor, and i'm interested in your services. I would like to contact you! Please let me know when you read this message...
+      </textarea>
 			<button class="btn" type="submit">Send</button>
 
-			<div id="message-sent" style="display: none;">
+			<div id="message-sent">
 				{% if messages %}
 				    {% for message in messages %}
 				    	<p style="{% if message.error %}color:f00;{% else %} color:#0f0; {% endif %}">
-				    		{{ message }}
+				    		An error occured attempting to send this message. Try again in 5 seconds.
 				    	</p>
 				    {% endfor %}
 				{% endif %}
@@ -37,8 +78,29 @@
 		<p>This message will be sent to my inbox! I'll reach to you when i read ya!</p>
 	</div>
 
+  <div class="fiverr-link">
+    <p>or</p>
+    <!-- Put this code anywhere in the body of your page where you want the badge to show up. -->
 
-    
+<div itemscope itemtype='http://schema.org/Person' class='fiverr-seller-widget' style='display: inline-block;'>
+     <a itemprop='url' href=https://www.fiverr.com/seems_good rel="nofollow" target="_blank" style='display: inline-block;'>
+        <div class='fiverr-seller-content' id='fiverr-seller-widget-content-a43cc82d-a471-4362-9acd-0be5d55880bb' itemprop='contentURL' style='display: none;'></div>
+        <div id='fiverr-widget-seller-data' style='display: none;'>
+            <div itemprop='name' >seems_good</div>
+            <div itemscope itemtype='http://schema.org/Organization'><span itemprop='name'>Fiverr</span></div>
+            <div itemprop='jobtitle'>Seller</div>
+            <div itemprop='description'>Hey !
+I'm a Video Editor from Argentina, with experience in NLE solutions such as Premiere Pro and Vegas Pro.
+I'm fluent in English as well as in Spanish!
+Don't hesitate in DMing me for a custom offer 🤘</div>
+        </div>
+    </a>
+</div>
+
+<script id='fiverr-seller-widget-script-a43cc82d-a471-4362-9acd-0be5d55880bb' src='https://widgets.fiverr.com/api/v1/seller/seems_good?widget_id=a43cc82d-a471-4362-9acd-0be5d55880bb' data-config='{"category_name":"Video \u0026 Animation"}' async='true' defer='true'></script>
+
+  </div>
+
 	<i class="title-icon fa-solid fa-store"></i>
 	<h3 class="small-title glitch" data-text="Packages">Packages</h3>
 
@@ -51,11 +113,15 @@
 
 			<ul>
 				<li><span>Price:</span> $25</li>
-				<li><span>Runtime:</span> up to 5 minutes</li>
-				<li id="os-mg" style="text-decoration:line-through;">Montion Graphics</li>
+				<li><span>Runtime:</span> 10 Min</li>
 				<li>Memes</li>
-				<li title="Sound effects + Background music">Sfx + Bgm</li>
-				<li>Captions</li>
+				<li title="Sound Effects">SFX</li>
+				<li title="Background Music">BGM</li>
+				<li>Text / Captions</li>
+        <li>Transitions</li>
+        <li>B-Roll</li>
+        <li>All aspect ratios</li>
+        <li>Delivery in 48 Hours</li>
 			</ul>
 
 		</div>
@@ -67,13 +133,19 @@
 				<i class="fa-solid fa-star"></i>
 			</div>
 
-			<ul>
-				<li><span>Price:</span> $45</li>
-				<li><span>Runtime:</span> up to 10 minutes</li>
-				<li>Montion Graphics</li>
+      <ul>
+				<li><span>Price:</span> $40</li>
+				<li><span>Runtime:</span> 12 Min</li>
 				<li>Memes</li>
-				<li title="Video effects + Sound effects + Background music">Vfx + Sfx + Bgm</li>
-				<li>Captions</li>
+				<li title="Sound Effects">SFX</li>
+				<li title="Background Music">BGM</li>
+				<li>Text / Captions</li>
+        <li>Transitions</li>
+        <li>B-Roll</li>
+        <li>Motion Graphics</li>
+        <li>Color Grading / LUTs</li>
+        <li>All aspect ratios</li>
+        <li>Delivery in 72 Hours</li>
 			</ul>
 
 		</div>
@@ -87,12 +159,16 @@
 			</div>
 
 			<ul>
-				<li><span>Price:</span> $70</li>
-				<li><span>Runtime:</span> up to 20 minutes</li>
-				<li>Montion Graphics</li>
-				<li>Memes</li>
-				<li title="Video effects + Sound effects + Background music">Vfx + Sfx + Bgm</li>
-				<li>Captions</li>
+				<li><span>Price:</span> $75</li>
+				<li><span>Runtime:</span> up to 25 Min</li>
+        <li>Memes</li>
+				<li title="Sound Effects">SFX</li>
+				<li title="Background Music">BGM</li>
+				<li>Text / Captions</li>
+        <li>Transitions</li>
+        <li>B-Roll</li>
+        <li>Same as <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> but longer</li>
+        <li>Delivery in 4-5 days</li>
 			</ul>
 
 		</div>
@@ -104,7 +180,7 @@
 			<li>
 				<details open>
 					<summary>How much are you charging right now?</summary>
-					<p>I have 3 packages available right now, the cheapest one is $25 for 5 min of runtime. $75 is the most expensive one, for more content. Check out the packages above.</p>
+					<p>I have 3 packages available right now, the cheapest one is $25 for 10 min of runtime. $75 is the most expensive one, for more content. Check out the packages above. <a href="https://es.fiverr.com/seems_good/edit-short-form-engaging-videos-for-youtube-tiktok-instagram" style="color: black;text-decoration:underline;">Shorts</a> are $10.</p>
 				</details>
 			</li>
 
@@ -125,7 +201,7 @@
 			<li>
 				<details>
 					<summary>What payment methods are you using?</summary>
-					<p>At the moment, PayPal</p>
+					<p>At the moment, PayPal and Payoneer</p>
 				</details>
 			</li>
 		</ul>
@@ -134,43 +210,58 @@
 
 {% block scripts %}
     <script>
+      function showCustomModal() {
+        const modal = document.getElementById("custom-modal");
+        modal.style.display = "block";
+      }
+    
+      function hideCustomModal() {
+        const modal = document.getElementById("custom-modal");
+        modal.style.display = "none";
+      }
+      
     	const form = document.querySelector('#my-form')
     	const messageSent = document.querySelector('#message-sent')
 
-    	form.addEventListener('submit', (event) => {
+    	form.addEventListener('submit', async (event) => {
 		    event.preventDefault();
-		    messageSent.style.display = 'none';
-        alert('Processing your message... give me just a second...')
+		    // messageSent.style.display = 'none';
+        // alert('Processing your message... give me just a second...')
+        showCustomModal()
 
-		    // Your form submission code here
 		    const formData = new FormData(form)
-		    fetch('{% url "contact" %}', {
-		    	method: 'POST',
-		    	body: formData
-		    })
-		    .then(response => {
-		    	if (response.ok) {
+        try{
+          const response = await fetch('{% url "contact" %}', {
+		    	 method: 'POST',
+		    	 body: formData
+		      })
+
+          if (response.ok) {
 		    		const message = document.createElement('div');
 				    message.textContent = 'Message sent';
 				    message.style.color = 'green';
     				message.style.marginTop = '10px';
-				    messageSent.appendChild(message);
-				    messageSent.style.display = 'block';
+				    // messageSent.appendChild(message);
+				    // messageSent.style.display = 'block';
 
-				    setTimeout(() => {
-				    	messageSent.style.display = 'none';
-				    	message.remove();
-				    }, 3000);
-		    	}else{
-		    		throw new Error('Failed to send message')
-		    	}
-		    })
-		    .catch(error => {
+            
+            messageSent.innerHTML = '';
+            messageSent.appendChild(message);
+				    // setTimeout(() => {
+        //       hideCustomModal()
+				    // 	messageSent.style.display = 'none';
+				    // 	message.remove();
+				    // }, 3000);
+          }else{
+            throw new Error('Failed to send message')
+          }
+          
+        }catch(error){
 		    	console.error(error)
 		    	alert('An error occurred while sending the message')
-		    })
-
-		    
+        }finally{
+          hideCustomModal()
+        }
 		});
     </script>
 {% endblock scripts %}

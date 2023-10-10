@@ -1,6 +1,15 @@
 {% extends "base.html" %}
 {% load static %}
 {% block title %}Homepage{% endblock %}
+
+{% block styles %}
+<style>
+  .cta-btns{
+    margin-top: 2rem;
+  }
+</style>
+{% endblock %}
+
 {% block content %}
     <section class="hero">
 		<video autoplay muted loop>
@@ -11,7 +20,10 @@
 		<div class="hero-txt">
 			<h1>Video Editor</h1>
 			<p>Francisco A.</p>
-			<a href="#about" class="cta">Learn More</a>
+      <div class="cta-btns">
+			 <a href="#about" class="cta">Learn More</a>
+       <a href="#packages-list" class="cta">Packages</a> 
+      </div>
 		</div>
 	</section>
 
@@ -42,14 +54,15 @@
 			</div>
 		</div>
 
-		<div class="about">
+    <div class="about">
 			<div class="about-l">
 				<video autoplay muted loop>
-					<source src="{% static 'skins.mov' %}" type="video/mp4">
+					<source src="{% static 'cashcow.webm' %}" type="video/webm">
 				</video>
 			</div>
+
 			<div class="about-r">
-				<p>I've <b title="Fiverr">freelanced</b> before, creating <b>short ads</b> for <b>businesses</b> and also i've worked with <b>small livestreamers</b>.</p>
+				<p>I can do <b>CashCow</b>, <b>Automation Videos</b>, <b>Faceless</b>.</p>
 				<a href="{% url 'contact' %}" class="btn">Contact me <i class="fa-regular fa-face-smile-beam"></i></a>
 			</div>
 		</div>
@@ -62,6 +75,18 @@
 			</div>
 			<div class="about-r">
 				<p>I also <b>do short form</b> content, such as <b>youtube shorts</b>, <b>tik toks</b>, <b>instagram reels</b>, etc.</p>
+				<a href="{% url 'contact' %}" class="btn">Contact me <i class="fa-regular fa-face-smile-beam"></i></a>
+			</div>
+		</div>
+
+		<div class="about">
+			<div class="about-l">
+				<video autoplay muted loop>
+					<source src="{% static 'skins.mov' %}" type="video/mp4">
+				</video>
+			</div>
+			<div class="about-r">
+				<p>I've <b title="Fiverr">freelanced</b> before, creating <b>short ads</b> for <b>businesses</b> and also i've worked with <b>small livestreamers</b>.</p>
 				<a href="{% url 'contact' %}" class="btn">Contact me <i class="fa-regular fa-face-smile-beam"></i></a>
 			</div>
 		</div>
@@ -99,11 +124,15 @@
 
 			<ul>
 				<li><span>Price:</span> $25</li>
-				<li><span>Runtime:</span> up to 5 minutes</li>
-				<li id="os-mg" style="text-decoration:line-through;">Montion Graphics</li>
+				<li><span>Runtime:</span> 10 Min</li>
 				<li>Memes</li>
-				<li title="Sound effects + Background music">Sfx + Bgm</li>
-				<li>Captions</li>
+				<li title="Sound Effects">SFX</li>
+				<li title="Background Music">BGM</li>
+				<li>Text / Captions</li>
+        <li>Transitions</li>
+        <li>B-Roll</li>
+        <li>All aspect ratios</li>
+        <li>Delivery in 48 Hours</li>
 			</ul>
 
 		</div>
@@ -115,13 +144,19 @@
 				<i class="fa-solid fa-star"></i>
 			</div>
 
-			<ul>
-				<li><span>Price:</span> $45</li>
-				<li><span>Runtime:</span> up to 10 minutes</li>
-				<li>Montion Graphics</li>
+      <ul>
+				<li><span>Price:</span> $40</li>
+				<li><span>Runtime:</span> 12 Min</li>
 				<li>Memes</li>
-				<li title="Video effects + Sound effects + Background music">Vfx + Sfx + Bgm</li>
-				<li>Captions</li>
+				<li title="Sound Effects">SFX</li>
+				<li title="Background Music">BGM</li>
+				<li>Text / Captions</li>
+        <li>Transitions</li>
+        <li>B-Roll</li>
+        <li>Motion Graphics</li>
+        <li>Color Grading / LUTs</li>
+        <li>All aspect ratios</li>
+        <li>Delivery in 72 Hours</li>
 			</ul>
 
 		</div>
@@ -135,12 +170,16 @@
 			</div>
 
 			<ul>
-				<li><span>Price:</span> $70</li>
-				<li><span>Runtime:</span> up to 20 minutes</li>
-				<li>Montion Graphics</li>
-				<li>Memes</li>
-				<li title="Video effects + Sound effects + Background music">Vfx + Sfx + Bgm</li>
-				<li>Captions</li>
+				<li><span>Price:</span> $75</li>
+				<li><span>Runtime:</span> up to 25 Min</li>
+        <li>Memes</li>
+				<li title="Sound Effects">SFX</li>
+				<li title="Background Music">BGM</li>
+				<li>Text / Captions</li>
+        <li>Transitions</li>
+        <li>B-Roll</li>
+        <li>Same as <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> but longer</li>
+        <li>Delivery in 4-5 days</li>
 			</ul>
 
 		</div>
@@ -148,7 +187,7 @@
 
   <div class="links-b">
   	<a href="{% url 'contact' %}" class="btn middle-cta" style="margin: 0;">Contact Me</a>
-    <a href="https://drive.google.com/drive/folders/1h1zA_tvaHb2OCYo8xmPCN1G6jIE5y12F"  class="btn middle-cta" style="margin: 0;">Samples</a>
+    <a href="https://drive.google.com/drive/folders/1i3DB153ADZXgTaoDx0vh1NflTYUdCMU6?usp=sharing"  class="btn middle-cta" style="margin: 0;">Samples</a>
   </div>
 
 <!--     workflow     -->
