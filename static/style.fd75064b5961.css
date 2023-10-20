@@ -545,7 +545,8 @@ li{list-style-type: none;}
 		width: 95%;
 	}
 	.about-l video,
-	.about-l img{
+	.about-l img,
+  .about-video-introduction video{
 		width: 80vw;
 	}
 	.about-r{

@@ -7,6 +7,19 @@
   .cta-btns{
     margin-top: 2rem;
   }
+  .about-introduction{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+  }
+  .about-video-introduction{
+    /* width: 65vw; */
+    margin: 0 auto;
+    transition: .3s;
+  }
 </style>
 {% endblock %}
 
@@ -30,13 +43,16 @@
 	<section id="about">
 		<h1 class="glitch" id="who" data-text="Who am I?"><span>Who am I?</span></h1>
 
-		<div class="about" id="me">
-			<div class="about-l">
-				<img src="{% static 'me.jpg' %}" alt="Francisco Abalos">
+		<div class="about-introduction" id="me">
+			<div class="about-video-introduction">
+				<!-- <img src="{% static 'me.jpg' %}" alt="Francisco Abalos"> -->
+        <video controls>
+          <source src="{% static 'new reel website.webm' %}" type="video/webm">
+        </video>
 			</div>
 
 			<div class="about-r">
-				<p>Hi, welcome to my <b>video editing</b> gig. I'm an editor skilled in <b>Vegas Pro</b>, software I use to create captivating videos. I also enjoy exploring new <b>AI tools</b> like <b>ChatGPT</b>, and <b>text-to-speech</b> software, that I can use in projects!</p>
+				<p>Hi, welcome to my <b>video editing</b> gig. I'm an editor skilled in <b>Vegas Pro</b>, software I use to create captivating videos.</p>
 
 				<a href="{% url 'contact' %}" class="btn">Contact me <i class="fa-regular fa-face-smile-beam"></i></a>
 			</div>
@@ -179,7 +195,7 @@
         <li>Transitions</li>
         <li>B-Roll</li>
         <li>Same as <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> but longer</li>
-        <li>Delivery in 4-5 days</li>
+        <li>Delivery in 10 days</li>
 			</ul>
 
 		</div>
